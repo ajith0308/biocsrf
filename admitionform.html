@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<!--=== Coding by CodingLab | www.codinglabweb.com === -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="style.css">
+     
+    <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <title>Responsive Regisration Form </title> 
+</head>
+<body>
+    <div class="container">
+        <header>Registration</header>
+
+        <form action="#">
+            <div class="form first">
+                <div class="details personal">
+                    <span class="title">Personal Details</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Full Name</label>
+                            <input type="text" placeholder="Enter your name" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Date of Birth</label>
+                            <input type="date" placeholder="Enter birth date" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Email</label>
+                            <input type="text" placeholder="Enter your email" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Mobile Number</label>
+                            <input type="number" placeholder="Enter mobile number" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Gender</label>
+                            <select required>
+                                <option disabled selected>Select gender</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Others</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Age</label>
+                            <input type="number" placeholder="Enter your age" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="details ID">
+                    <span class="title">Family Details</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Father's name</label>
+                            <input type="text" placeholder="Enter Father's name" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Mother's name</label>
+                            <input type="textr" placeholder="Enter Mother's name" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Father's occupation</label>
+                            <input type="text" placeholder="Enter Father's Occupation" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Mother's Occupation</label>
+                            <input type="text" placeholder="Enter Mother's occupation" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Father's income</label>
+                            <input type="number" placeholder="Enter Father's income" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Mother's income</label>
+                            <input type="number" placeholder="Enter Mother's income" required>
+                        </div>
+                    </div>
+
+                    <button class="nextBtn">
+                        <span class="btnText">Next</span>
+                        <i class="uil uil-navigator"></i>
+                    </button>
+                </div> 
+            </div>
+            
+            <div class="form second">
+                <div class="details address">
+                    <span class="title">Address Details</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Address Type</label>
+                            <input type="text" placeholder="Permanent or Temporary" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Nationality</label>
+                            <input type="text" placeholder="Enter nationality" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>State</label>
+                            <input type="text" placeholder="Enter your state" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>District</label>
+                            <input type="text" placeholder="Enter your district" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>City name</label>
+                            <input type="text" placeholder="Enter City name" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>House no and street name</label>
+                            <input type="number" placeholder="Enter House no and street name" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="details family">
+                    <span class="title">Other Details</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Religion</label>
+                            <input type="text" placeholder="Enter Religion" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Community</label>
+                            <input type="text" placeholder="Enter Community" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Caste</label>
+                            <input type="text" placeholder="Enter Caste" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Father's mobile number</label>
+                            <input type="number" placeholder="Enter mobile number" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Mother's mobile number</label>
+                            <input type="text" placeholder="Enter mobile number" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Choose your photo</label>
+                            <input type="file" placeholder="Choose your photo" required>
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+                        <div class="backBtn">
+                            <i class="uil uil-navigator"></i>
+                            <span class="btnText">Back</span>
+                        </div>
+                        
+                        <button class="sumbit">
+                            <span class="btnText">Submit</span>
+                            <i class="uil uil-navigator"></i>
+                        </button>
+                    </div>
+                </div> 
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

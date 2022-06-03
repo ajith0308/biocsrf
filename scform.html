@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <style>
+        #camara{
+            width: 150px;
+            height: 150px;
+            border: 3px solid rgb(160, 6, 6);
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form </title>
+</head>
+<body>
+    <div>
+        <form class="row gy-2 gx-3 align-items-center"  method="post">
+        <div>  <img name="photo" id="camara">  
+            <div>
+                <button onclick="takesnap()">Capture</button>
+            </div>
+                     </div>
+
+        <div class="container">
+           
+            <div class="row">
+                <label >Basic detiles</label>
+        <div class="col"><input class="form-control"  type="number" name="rollnumber" placeholder="rollnumber"></div>
+        <div class="col" >  <input class="form-control"  name="name" type="text"  placeholder="name">          </div>  
+        <div class="col">  <input class="form-control"  name="email" type="email" placeholder="email">          </div>
+        <div class="col">  <input class="form-control" name='phone' type="number" placeholder="phone">           </div> 
+       
+        </div>
+        <dir class="row"></dir>
+        <div class="row">
+            <label >Bank detiles</label>
+        <div class="col-auto">  <input class="form-control"  type="number" name="bkaccount" placeholder="bank account number" >          </div>   
+        <div class="col-auto">  <input class="form-control" type="text" name="ifsc" placeholder="ifsc">              
+        </div>
+        <div>  <input class="form-control"  type="number" name="tencnumber" id="" placeholder="IX certificate number"> <input type='file' name="" id="">  </div>
+        <div>  <input class="form-control"  type="number" name="tencmark" id="" placeholder="10th mark">     </div> 
+        <div>  <input class="form-control"  type="number" name="twocnumber" id="" placeholder="XII certificate nummber">  <input type='file' name="" id="">  </div> 
+        <div>  <input class="form-control"  type="number" name="twocmark" id="" placeholder="12th mark">     </div>
+        <div>  <input class="form-control"  type="number" name="ccnumber" id="" placeholder="ccumber">   <input type='file' name="" id="">   </div>
+        <div>  <input class="form-control"  type="number" name="incomecnumber" placeholder="incomeccnumber"> <input type='file' name="" id=""> </div>
+        <div>  <input class="form-control"  type="number" name="aadhernumbre" id="" placeholder="aadher"> </div>
+       
+            
+            
+
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.min.js" integrity="sha512-dQIiHSl2hr3NWKKLycPndtpbh5iaHLo6MwrXm7F0FM5e+kL2U16oE9uIwPHUl6fQBeCthiEuV/rzP3MiAB8Vfw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    Webcam.set({
+        width:350,
+        heigh:350,
+        image_format:'jpeg',
+        jpeg_quality:90,
+    })
+    Webcam.attach('#camara')
+    var shutter=new Audio();
+    shutter.autoplay=true;
+    shutter.src=navigator.userAgent.match(/Firefox/)?'shuttr.ogg':'shutter.mp3';
+    function takesnap(){
+        shutter.play()
+
+
+    Webcam.snap(function(data)
+    {
+        document.getElementById('camara').innerHTML=data
+    });
+}
+</script>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>

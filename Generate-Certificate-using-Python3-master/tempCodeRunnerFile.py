@@ -1,0 +1,1 @@
+d.text(ylocation,a2, fill = text_color, font = font)

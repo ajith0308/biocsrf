@@ -1,0 +1,100 @@
+{% load static %}
+<html>
+
+     <script src="{% static "jquery-1.8.2.js" %}"></script>
+    <script src="{% static "mfs100-9.0.2.6.js" %}"></script>
+    <script language="javascript" type="text/javascript">
+      var quality = 40; //(1 to 100) (recommanded minimum 55)
+        var timeout = 10; // seconds (minimum=10(recommanded), maximum=60, unlimited=0 )
+       //document.getElementById("txtRawData").style.display = 'none';
+
+      
+
+      
+        function Capture() {
+            try {
+             //   document.getElementById('txtStatus').value = "";
+                document.getElementById('imgFinger').src = "data:image/bmp;base64,";
+            //    document.getElementById('txtImageInfo').value = "";
+              //  document.getElementById('txtIsoTemplate').value = "";
+                //document.getElementById('txtAnsiTemplate').value = "";
+                //document.getElementById('txtIsoImage').value = "";
+               document.getElementById('imgFinger').value = "";
+              document.getElementById('imgFinger1').value = 0;
+
+                var res = CaptureFinger(quality, timeout);
+                if (res.httpStaus) {
+
+                  //  document.getElementById('txtStatus').value = "ErrorCode: " + res.data.ErrorCode + " ErrorDescription: " + res.data.ErrorDescription;
+
+                    if (res.data.ErrorCode == "0") {
+                        document.getElementById('imgFinger').src = "data:image/bmp;base64," + res.data.BitmapData;
+                        document.getElementById('imgFinger1').value= "data:image/bmp;base64," + res.data.BitmapData;
+                       // document.getElementById('imgFinger1').text= "data:image/bmp;base64," + res.data.BitmapData;
+                        var s="data:image/bmp;base64,"+res.data.BitmapData
+                        sessionStorage.setItem('img',s);
+
+                      //  document.getElementById('imgFinger').value= "data:image/bmp;base64," + res.data.BitmapData;
+                      //console.log(s);
+                    
+                       // var imageinfo = "Quality: " + res.data.Quality + " Nfiq: " + res.data.Nfiq + " W(in): " + res.data.InWidth + " H(in): " + res.data.InHeight + " area(in): " + res.data.InArea + " Resolution: " + res.data.Resolution + " GrayScale: " + res.data.GrayScale + " Bpp: " + res.data.Bpp + " WSQCompressRatio: " + res.data.WSQCompressRatio + " WSQInfo: " + res.data.WSQInfo;
+                       // document.getElementById('txtImageInfo').value = imageinfo;
+                        //document.getElementById('txtIsoTemplate').value = res.data.IsoTemplate;
+                       // document.getElementById('txtAnsiTemplate').value = res.data.AnsiTemplate;
+                        //document.getElementById('txtIsoImage').value = res.data.IsoImage;
+                       //document.getElementById('txtRawData').value = res.data.RawData;
+                      //  document.getElementById('txtWsqData').value = res.data.WsqImage;
+                    }
+                }
+                else {
+                    alert(res.err);
+                }
+            }
+            catch (e) {
+                alert(e);
+            }
+            return  s;
+            
+        }
+
+       
+
+      
+    </script>
+    <body>
+ <title>automationsysytem</title>
+    <link rel="stylesheet" href= "{% static "assets.main/bootstrap/css/bootstrap.min.css "%}" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic"
+    />
+    <link rel="stylesheet" href="{% static "assets.main/fonts/fontawesome-all.min.css "%}" />
+    <link rel="stylesheet" href="{% static "assets.main/fonts/font-awesome.min.css "%}" />
+    <link rel="stylesheet" href="{% static "assets.main/fonts/ionicons.min.css "%}" />
+    <link
+      rel="stylesheet"
+      href="{% static "assets.main/fonts/fontawesome5-overrides.min.css "%}"
+    />
+    <link rel="stylesheet" href="{% static "assets.main/css/Effective-Pricing-Cards.css "%}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css "
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css "
+    />
+    <link rel="stylesheet" href="{% static "assets.main/css/Login-Form-Clean.css "%} "/>
+    <link rel="stylesheet" href="{% static "assets.main/css/Off-Canvas-Sidebar-Drawer-Navbar.css "%}"/>
+  </head>
+  <form method="POST">
+		{% csrf_token %}
+          <img id="imgFinger" width="145px" height="188px" alt="Finger Image" /> </div>
+          <input id="imgFinger1"  name="imgFinger1" readonly  /> 
+            <input type='submit'  id="btnCapture"  name=' Capture'  onclick="Capture();" >Capture</button>
+  </form>
+  </html>
