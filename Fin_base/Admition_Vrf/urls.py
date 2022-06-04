@@ -5,7 +5,7 @@ urlpatterns = [
     path('', views.index, name="Home"),
     path('admition', views.admition,name="admition"),
     path('scollership',views.scr, name='schollership'),
-    path('fingerprint',views.mfstest),
+    path('aadher',views.aadher),
     path('adminlogin',views.admition_login,name="admissionlogin"),
     path('profile',views.profile,name='profile'),
     path('table',views.table,name='table'),

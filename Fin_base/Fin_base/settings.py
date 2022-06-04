@@ -81,6 +81,7 @@ DATABASES = {
     #     'NAME': BASE_DIR / 'db.sqlite3',}
     'default': {
         'ENGINE': 'django.db.backends.mysql',
+      
         'NAME': 'fingerprint',
         'USER': 'root',
         'PASSWORD': '',

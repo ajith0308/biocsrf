@@ -2,6 +2,7 @@ from cmath import nanj
 from ctypes import addressof
 import email
 from email.headerregistry import Address
+from operator import mod
 from tkinter.tix import Form
 from django.db import models
 from django.forms import CharField, IntegerField
@@ -10,6 +11,7 @@ from django.forms import CharField, IntegerField
 class aadher(models.Model):
     aadher_number=models.UUIDField(primary_key=True,auto_created=True )
     name=models.CharField( max_length=50,null=False)
+    dob=models.DateField()
     fathername=models.CharField(max_length=150,null=False)
     mothername=models.CharField(max_length=150,null=False)
     address=models.CharField(max_length=250 ,null=False)
@@ -19,7 +21,13 @@ class aadher(models.Model):
 
 class aadher_bio(models.Model):
     aadher=models.ForeignKey("aadher", on_delete=models.CASCADE)
-    biodata=models.CharField(max_length=95000 ,null=False,editable=False,unique=True)
+    biodata1=models.CharField(max_length=500 ,editable=False )
+    biodata2=models.CharField(max_length=500,editable=False)
+    biodata3=models.CharField(max_length=500,editable=False)
+    biodata4=models.CharField(max_length=500,editable=False)
+    biodata5=models.CharField(max_length=500,editable=False)
+
+
 
 
 
@@ -29,10 +37,6 @@ class aadher_bio(models.Model):
 #     csrt_number=models.ForeignKey(,max_length=100 , on_delete=CASCADE)
 #     student_name=models.CharField(max_length=100)
 #     mark=models.IntegerField()
-
-class  company_api(models.Model):
-    username=models.CharField( max_length=50,primary_key=True)
-    biodata=models.JSONField()
 
 class student_database(Form):
     name=models.CharField( max_length=50)

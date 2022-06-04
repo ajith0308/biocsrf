@@ -1,17 +1,17 @@
 from ctypes import addressof
 import email
 from django.shortcuts import redirect, render
+from requests import session
 from .models  import *
 from django.contrib import messages
 # Create your views here.
 
 
-def mfstest(rep):
-    import time
+def aadher(rep):
     if  rep.method=='POST':
-        url=rep.POST['imgFinger1']
         fname=rep.POST['fname']
         lname=rep.POST['lname']
+        dob=rep.POST['dob']
         name=fname+lname
         fathername=rep.POST['Fathername']
         mothername=rep.POST['Mothername']
@@ -19,16 +19,16 @@ def mfstest(rep):
         pincode=rep.POST['pincode']
         phone=rep.POST['Phone']
         email=rep.POST['email']
-        if url==0 or url== "" or url ==None:
-            messages.info(rep,'no finger print')
-            return render(rep,'aadherreg.htm')
-        else:    
-            a= aadher(biodata=url,name=name,fathername=fathername,mothername=mothername,address=address,phone=phone,email=email,pincode=pincode)
-            a.save()
-            return redirect(index)
+        a= aadher(name=name,dob=dob,fathername=fathername,mothername=mothername,address=address,phone=phone,email=email,pincode=pincode)
+        a.save()
+        
+        return redirect(index)
     else:
-         return render(rep,'aadherrev.html')
-         
+         return render(rep,'frontend/aadharmultiform.htm')
+
+
+        
+
 def arev(request):
     return render(request,'aadherrev.html')
 

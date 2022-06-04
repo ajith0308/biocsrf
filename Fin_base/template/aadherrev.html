@@ -15,6 +15,7 @@
       
 
       
+
         function Capture() {
             try {
              //   document.getElementById('txtStatus').value = "";
@@ -61,7 +62,7 @@
             return  s;
             
         }
-        vargalleryTemplate= document.getElementById('txtIsoTemplate').value;
+        var galleryTemplate= document.getElementById('txtIsoTemplate').value;
         function Match(){
         var res = MatchFinger(quality, timeout, galleryTemplate);
         if (res.httpStaus) {
