@@ -1,15 +1,18 @@
 from cmath import nanj
 from ctypes import addressof
 import email
+from unicodedata import name
+import uuid
 from email.headerregistry import Address
 from operator import mod
+from pickle import TRUE
 from tkinter.tix import Form
 from django.db import models
 from django.forms import CharField, IntegerField
 
 
-class aadher(models.Model):
-    aadher_number=models.UUIDField(primary_key=True,auto_created=True )
+class Aadher(models.Model):
+    aadher_number=models.IntegerField(auto_created=True,primary_key=True,serialize=TRUE )
     name=models.CharField( max_length=50,null=False)
     dob=models.DateField()
     fathername=models.CharField(max_length=150,null=False)
@@ -20,12 +23,43 @@ class aadher(models.Model):
     email=models.EmailField(null=False,unique=True)
 
 class aadher_bio(models.Model):
-    aadher=models.ForeignKey("aadher", on_delete=models.CASCADE)
+    aadher=models.IntegerField(unique=True)
     biodata1=models.CharField(max_length=500 ,editable=False )
     biodata2=models.CharField(max_length=500,editable=False)
     biodata3=models.CharField(max_length=500,editable=False)
     biodata4=models.CharField(max_length=500,editable=False)
     biodata5=models.CharField(max_length=500,editable=False)
+
+class admission(models.Model):
+    Roll=models.IntegerField(primary_key=True)
+    aadher_number=models.IntegerField(unique=True)
+    dob=models.DateField()
+    name=models.CharField(max_length=150)
+    email=models.EmailField()
+    mother=models.CharField(max_length=150)
+    father=models.CharField(max_length=150)
+    income=models.IntegerField()
+    gender=models.CharField(max_length=100)
+
+class csrf(models.Model):
+    sln=models.IntegerField(auto_created=True,null=False)
+    Roll=models.IntegerField(null=False)
+    mark1=models.IntegerField()
+    mark2=models.IntegerField()
+    mark3=models.IntegerField()
+    mark4=models.IntegerField()
+    mark5=models.IntegerField() 
+    biodata1=models.CharField(max_length=500 ,editable=False )
+    biodata2=models.CharField(max_length=500,editable=False)
+    biodata3=models.CharField(max_length=500,editable=False)
+    biodata4=models.CharField(max_length=500,editable=False)
+    biodata5=models.CharField(max_length=500,editable=False)
+
+
+
+
+
+
 
 
 
